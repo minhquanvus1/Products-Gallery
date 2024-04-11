@@ -8,6 +8,7 @@ import TestProductsList from "./components/TestProductsList";
 import LearnInfScroll from "./components/LearnInfScroll";
 import LearnReactScroll from "./components/LearnReactScroll";
 import LearnPage from "./components/ProductsGalleryPage";
+import NewProductsGallery from "./components/NewProductsGallery";
 const App = () => {
   return (
     <div>
@@ -15,7 +16,8 @@ const App = () => {
       {/* <LearnReactScroll></LearnReactScroll> */}
       {/* <LearnInfScroll></LearnInfScroll> */}
       {/* <TestProductsList></TestProductsList> */}
-      <ProductsGalleryPage></ProductsGalleryPage>
+      {/* <ProductsGalleryPage></ProductsGalleryPage> */}
+      <NewProductsGallery></NewProductsGallery>
     </div>
   );
 };
