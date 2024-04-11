@@ -1,5 +1,5 @@
 import React from "react";
-import useProductSearch from "./hooks/useProductSearch";
+import useProductSearch from "../hooks/useProductSearch";
 import { useState, useRef, useCallback } from "react";
 import ProductCard from "./ProductCard";
 const NewProductsGallery = () => {
