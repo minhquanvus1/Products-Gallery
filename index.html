@@ -1,13 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+</head>
+
+<!-- <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script> -->
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+<!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script> -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css"
+  type="text/css">
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <div id='map' style='width: 400px; height: 300px;'></div>
+  <!-- <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWluaHF1YW52dXMiLCJhIjoiY2x1dzA5ZXNiMDcwbjJrbW9lZGthNmt5ZCJ9.05ZphIx8-h0Bbbylx54g3A';
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      center: [-74.5, 40], // starting position [lng, lat]
+      zoom: 9, // starting zoom
+    });
+  </script> -->
+</body>
+
 </html>
