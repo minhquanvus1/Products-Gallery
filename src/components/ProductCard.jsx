@@ -21,10 +21,10 @@ const ProductCard = ({
         <p className="product-category">{productCategory}</p>
         <div className="product-rating">
           <span className="rating-value">
-            {productRating} : {Math.round(productRating * 10) / 10} :{" "}
-            {roundedRating}
+            <StarsReview roundedRating={roundedRating} size={32}></StarsReview>
+            {/* {productRating} : {Math.round(productRating * 10) / 10} :{" "}
+            {roundedRating} */}
           </span>
-          <StarsReview roundedRating={roundedRating} size={32}></StarsReview>
         </div>
       </div>
     </div>
