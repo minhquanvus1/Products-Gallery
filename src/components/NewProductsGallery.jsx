@@ -2,6 +2,7 @@ import React from "react";
 import useProductSearch from "../hooks/useProductSearch";
 import { useState, useRef, useCallback } from "react";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 const NewProductsGallery = () => {
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
@@ -68,6 +69,14 @@ const NewProductsGallery = () => {
         <button className="btn btn-outline-success" type="submit">
           Search
         </button>
+        &nbsp;&nbsp;
+        <Link to="/" className="btn btn-success btn-sm">
+          Home Page
+        </Link>
+        &nbsp;&nbsp;
+        <Link to="/map" className="btn btn-success btn-sm">
+          View Map
+        </Link>
       </form>
 
       {products.length > 0 &&
