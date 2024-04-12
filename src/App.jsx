@@ -9,16 +9,29 @@ import LearnInfScroll from "./components/LearnInfScroll";
 import LearnReactScroll from "./components/LearnReactScroll";
 import LearnPage from "./components/ProductsGalleryPage";
 import NewProductsGallery from "./components/NewProductsGallery";
+import LandingPage from "./components/LandingPage";
+import { Routes, Route } from "react-router-dom";
+import MapBox from "./components/MapBox";
 const App = () => {
   return (
-    <div>
+    <>
       {/* <LearnPage></LearnPage> */}
       {/* <LearnReactScroll></LearnReactScroll> */}
       {/* <LearnInfScroll></LearnInfScroll> */}
       {/* <TestProductsList></TestProductsList> */}
       {/* <ProductsGalleryPage></ProductsGalleryPage> */}
-      <NewProductsGallery></NewProductsGallery>
-    </div>
+
+      {/* <NewProductsGallery></NewProductsGallery> */}
+      {/* <Map></Map> */}
+      <Routes>
+        <Route path="/" element={<LandingPage></LandingPage>}></Route>
+        <Route path="/map" element={<MapBox></MapBox>}></Route>
+        <Route
+          path="/product-gallery"
+          element={<NewProductsGallery></NewProductsGallery>}
+        ></Route>
+      </Routes>
+    </>
   );
 };
 
