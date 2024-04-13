@@ -1,4 +1,4 @@
-const RoundRating = (productRating) => {
+const RoundRating = (productRating: number) => {
   // round the productRating to the first decimal place
   const rating = Math.round(productRating * 10) / 10;
 
@@ -9,9 +9,9 @@ const RoundRating = (productRating) => {
   const ratingDecimal = rating - ratingInteger;
 
   // add a tolerance to account for floating point errors
-  const tolerance = 0.0001;
+  const tolerance: number = 0.0001;
 
-  let roundedRating;
+  let roundedRating: number;
   // 4.0 -> 4.3 => 4.0
   if (ratingDecimal <= 0.3 + tolerance) {
     roundedRating = ratingInteger;
