@@ -10,7 +10,7 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-const LandingPage = () => {
+const LandingPage: React.FC<{}> = () => {
   return (
     <>
       {/* <!-- Navbar --> */}
