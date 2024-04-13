@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import SearchBarTest from "./SearchBarTest";
-
+import { ProductModel } from "../models/ProductModel";
 function ProductsGalleryPage() {
   const [page, setPage] = useState(0);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductModel[]>([]);
   const [searchMode, setSearchMode] = useState(false);
-  const [foundProducts, setFoundProducts] = useState([]);
+  const [foundProducts, setFoundProducts] = useState<ProductModel[]>([]);
   const [noData, setNoData] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [trigger, setTrigger] = useState(false);
@@ -33,10 +33,11 @@ function ProductsGalleryPage() {
   };
 
   useEffect(() => {
-    const handleScroll = async (e) => {
-      const scrollHeight = e.target.documentElement.scrollHeight;
+    const handleScroll = async (e: Event) => {
+      const target = e.target as Document;
+      const scrollHeight = target.documentElement.scrollHeight;
       const currentHeight =
-        e.target.documentElement.scrollTop + window.innerHeight;
+        target.documentElement.scrollTop + window.innerHeight;
       setTrigger(false);
       // console.log("scroll height is", scrollHeight);
       // console.log("current height is", currentHeight);
