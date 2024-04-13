@@ -1,7 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-const SearchBarTest = ({
+import { ProductModel } from "../models/ProductModel";
+interface SearchBarTestProps {
+  foundProducts: ProductModel[];
+  setFoundProducts: React.Dispatch<React.SetStateAction<ProductModel[]>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  searchMode: boolean;
+  setSearchMode: React.Dispatch<React.SetStateAction<boolean>>;
+  setProducts: React.Dispatch<React.SetStateAction<ProductModel[]>>;
+  noData: boolean;
+  setNoData: React.Dispatch<React.SetStateAction<boolean>>;
+  setTrigger: React.Dispatch<React.SetStateAction<boolean>>;
+  trigger: boolean;
+  total: number;
+  setTotal: React.Dispatch<React.SetStateAction<number>>;
+}
+const SearchBarTest: React.FC<SearchBarTestProps> = ({
   foundProducts,
   setFoundProducts,
   page,
@@ -19,7 +35,7 @@ const SearchBarTest = ({
   const [searchTerm, setSearchTerm] = useState("");
   //   const [cancelToken, setCancelToken] = useState(null);
   //   let cancelToken;
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     setPage(0);
     setTotal(0);
@@ -89,7 +105,7 @@ const SearchBarTest = ({
   useEffect(() => {
     console.log("products in search bar", foundProducts);
   }, [foundProducts]);
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchForProduct();
   };
