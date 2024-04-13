@@ -4,10 +4,10 @@
 // import './App.css'
 import ProductsGalleryPage from "./components/ProductsGalleryPage";
 import React from "react";
-import TestProductsList from "./components/TestProductsList";
-import LearnInfScroll from "./components/LearnInfScroll";
-import LearnReactScroll from "./components/LearnReactScroll";
-import LearnPage from "./components/ProductsGalleryPage";
+// import TestProductsList from "./components/TestProductsList";
+// import LearnInfScroll from "./components/LearnInfScroll";
+// import LearnReactScroll from "./components/LearnReactScroll";
+// import LearnPage from "./components/ProductsGalleryPage";
 import NewProductsGallery from "./components/NewProductsGallery";
 import LandingPage from "./components/LandingPage";
 import { Routes, Route } from "react-router-dom";
