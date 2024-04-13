@@ -2,7 +2,16 @@ import React from "react";
 import "../css/product.css";
 import RoundRating from "../functions/RoundRating";
 import StarsReview from "./StarsReview";
-const ProductCard = ({
+
+interface ProductCardProps {
+  productTitle: string;
+  productImage: string;
+  productCategory: string;
+  productDescription: string;
+  productRating: number;
+  productPrice: number;
+}
+const ProductCard: React.FC<ProductCardProps> = ({
   productTitle,
   productImage,
   productCategory,
