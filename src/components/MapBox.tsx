@@ -3,14 +3,29 @@ import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Map, { Marker } from "react-map-gl";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-// import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
+import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
+
+interface GeolocationCoordinates {
+  latitude: number;
+  longitude: number;
+  altitude: number | null;
+  accuracy: number;
+  altitudeAccuracy: number | null;
+  heading: number | null;
+  speed: number | null;
+}
+
+interface GeolocationPosition {
+  coords: GeolocationCoordinates;
+}
+
 mapboxgl.accessToken = import.meta.env.VITE_MAP_BOX_ACCESS_TOKEN;
 
-const MapBox = () => {
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-  const marker = useRef(null);
-  const currentMarker = useRef(null);
+const MapBox: React.FC<{}> = () => {
+  const mapContainer = useRef<HTMLDivElement | null>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+  const marker = useRef<mapboxgl.Marker | null>(null);
+  const currentMarker = useRef<mapboxgl.Marker | null>(null);
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
   const [zoom, setZoom] = useState(16);
@@ -19,7 +34,7 @@ const MapBox = () => {
     lat: 10.769648,
     lng: 106.6992094,
   };
-  const successLocation = (position) => {
+  const successLocation = (position: GeolocationPosition) => {
     console.log("position is", position);
     const coordinates = position.coords;
     setLng(coordinates.longitude);
@@ -37,7 +52,7 @@ const MapBox = () => {
   }, []);
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current || !mapContainer.current) return; // initialize map only once
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -81,7 +96,7 @@ const MapBox = () => {
     }
 
     map.current.on("load", () => {
-      map.current.flyTo({
+      map.current?.flyTo({
         center: [defaultDestination.lng, defaultDestination.lat],
         zoom: zoom,
       });
