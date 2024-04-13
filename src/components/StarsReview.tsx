@@ -1,6 +1,11 @@
 import React from "react";
 
-const StarsReview = ({ roundedRating, size }) => {
+interface StarsReviewProps {
+  roundedRating: number;
+  size: number;
+}
+
+const StarsReview: React.FC<StarsReviewProps> = ({ roundedRating, size }) => {
   let fullStars = 0;
   let halfStars = 0;
   let emptyStars = 0;
