@@ -3,15 +3,15 @@ import useProductSearch from "../hooks/useProductSearch";
 import { useState, useRef, useCallback } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
-const NewProductsGallery = () => {
+const NewProductsGallery: React.FC<{}> = () => {
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const { loading, error, products, hasMore, submit, setSubmit } =
     useProductSearch(query, pageNumber);
 
-  const observer = useRef();
+  const observer = useRef<IntersectionObserver | null>(null);
   const lastProductElementRef = useCallback(
-    (node) => {
+    (node: HTMLElement | null) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
@@ -25,11 +25,11 @@ const NewProductsGallery = () => {
     [loading, hasMore]
   );
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setPageNumber(0);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // console.log("query now is", query);
     setPageNumber(0);
