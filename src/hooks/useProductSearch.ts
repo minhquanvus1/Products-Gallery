@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-const useProductSearch = (query, pageNumber) => {
+import axios, { Canceler } from "axios";
+import { ProductModel } from "../models/ProductModel";
+const useProductSearch = (query: string, pageNumber: number) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductModel[]>([]);
   const [hasMore, setHasMore] = useState(false);
   const [submit, setSubmit] = useState(false);
   useEffect(() => {
@@ -13,8 +14,8 @@ const useProductSearch = (query, pageNumber) => {
     console.log("current page is", pageNumber);
     setLoading(true);
     setError(false);
-    let cancel;
-    let url;
+    let cancel: Canceler;
+    let url: string;
     if (query) {
       // Use search API if query is not empty
       console.log("search is called");
@@ -51,9 +52,9 @@ const useProductSearch = (query, pageNumber) => {
           } else {
             // Filter out duplicates based on product ID
             const updatedProducts = foundProducts.filter(
-              (product) =>
+              (product: ProductModel) =>
                 !prevProducts.some(
-                  (prevProduct) => prevProduct.id === product.id
+                  (prevProduct: ProductModel) => prevProduct.id === product.id
                 )
             );
             // Merge the filtered new products with existing products
