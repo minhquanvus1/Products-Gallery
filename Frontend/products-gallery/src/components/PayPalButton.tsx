@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../baseUrl";
+
 interface PayPalButtonProps {
   amount: string;
   currency: string;
@@ -16,7 +18,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
     try {
       e.preventDefault();
       const response = await fetch(
-        `http://localhost:8081/payment/create?method=paypal&amount=${amount}&currency=${currency}&description=${description}`,
+        `${baseURL}/payment/create?method=paypal&amount=${amount}&currency=${currency}&description=${description}`,
         {
           method: "POST",
         }

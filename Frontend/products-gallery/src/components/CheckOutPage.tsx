@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PayPalButton from "./PayPalButton";
 import { useParams, useLocation } from "react-router-dom";
+import { baseURL } from "../baseUrl";
 
 const CheckOutPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,28 +14,28 @@ const CheckOutPage = () => {
   //   console.log("id is", id);
   //   console.log("location titel is", location.state.productTitle);
   //   const { productTitle, productPrice } = location.state;
-  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(
-        `http://localhost:8081/payment/create?method=paypal&amount=${amount}&currency=${currency}&description=${description}`,
-        {
-          method: "POST",
-        }
-      );
-      if (!response.ok) {
-        throw new Error("failed to fetch hello from Spring Boot");
-      }
-      const approvalUrl = await response.text();
-      console.log("approvalUrl in checkout page is", approvalUrl);
-      console.log("window href is", window.location.href);
-      sessionStorage.setItem("approvalUrl in checkout", approvalUrl);
-      sessionStorage.setItem("window href in checkout", window.location.href);
-      window.location.href = approvalUrl; // Redirect user to PayPal approval page
-    } catch (error) {
-      console.error("error fetching hello from Spring Boot", error);
-    }
-  };
+  // const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(
+  //       `${baseURL}/payment/create?method=paypal&amount=${amount}&currency=${currency}&description=${description}`,
+  //       {
+  //         method: "POST",
+  //       }
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error("failed to fetch hello from Spring Boot");
+  //     }
+  //     const approvalUrl = await response.text();
+  //     console.log("approvalUrl in checkout page is", approvalUrl);
+  //     console.log("window href is", window.location.href);
+  //     sessionStorage.setItem("approvalUrl in checkout", approvalUrl);
+  //     sessionStorage.setItem("window href in checkout", window.location.href);
+  //     window.location.href = approvalUrl; // Redirect user to PayPal approval page
+  //   } catch (error) {
+  //     console.error("error fetching hello from Spring Boot", error);
+  //   }
+  // };
   return (
     <div className="container">
       <h1 className="text-center mt-5">{`Paypal Payment for Product: ${sessionStorage.getItem(
