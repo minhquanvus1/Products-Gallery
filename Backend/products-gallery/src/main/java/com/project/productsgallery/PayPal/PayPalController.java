@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 public class PayPalController {
 
