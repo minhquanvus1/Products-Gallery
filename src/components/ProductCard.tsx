@@ -2,8 +2,10 @@ import React from "react";
 import "../css/product.css";
 import RoundRating from "../functions/RoundRating";
 import StarsReview from "./StarsReview";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
+  productId: number;
   productTitle: string;
   productImage: string;
   productCategory: string;
@@ -12,6 +14,7 @@ interface ProductCardProps {
   productPrice: number;
 }
 const ProductCard: React.FC<ProductCardProps> = ({
+  productId,
   productTitle,
   productImage,
   productCategory,
@@ -20,6 +23,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
   productPrice,
 }) => {
   const roundedRating = RoundRating(productRating);
+  const handleClick = () => {
+    sessionStorage.setItem("productId", productId.toString());
+    sessionStorage.setItem("productTitle", productTitle);
+    sessionStorage.setItem("productPrice", productPrice.toString());
+  };
   return (
     <div className="product-card">
       <img className="product-image" src={productImage} alt="product-image" />
@@ -35,6 +43,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
             {roundedRating} */}
           </span>
         </div>
+        <Link
+          to={`/products/${productId}/check-out`}
+          // state={{ productTitle: "productTitle" }}
+          className="btn btn-info"
+          style={{ marginTop: "12px" }}
+          onClick={handleClick}
+        >
+          Checkout
+        </Link>
       </div>
     </div>
   );
