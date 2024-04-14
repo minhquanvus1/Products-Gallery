@@ -2,6 +2,8 @@
 
 - The Backend app is built with Java Spring Boot
 
+- For the Product data, the app uses the `dummyjson` API, here is the link: https://dummyjson.com/docs/products
+
 - The Backend techstack also includes: PayPal SDK, Lombok, Spring Profiles, and Docker
 
 ## Getting Started

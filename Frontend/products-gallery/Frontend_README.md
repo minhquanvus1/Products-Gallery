@@ -2,7 +2,9 @@
 
 - For the Frontend, the app is built with React TypeScript, Bootstrap 5, and is deployed on both Render, and AWS S3 Static Website Hosting
 
-- The Frontend techstack also includes: Axios, Vite, React Router, MapBox gl, and FontaweSome.
+- The Frontend features include: Infinite Scrolling (that is, each time the user scrolls to the end of the product list, the next 20 products will be displayed.), search for Product by name, view Product Rating as StarsReview, Check out to buy a Product with PayPal, and view the Map of the location of the Products Gallery (the Red Marker), and the user's current location (the Blue Marker) (User can zoom out to see the Marker of their current location more clearly).
+
+- The Frontend techstack also includes: Axios, Vite, React Router, Intersection Observer, MapBox gl, and FontaweSome.
 
 - For the Frontend, at first, the app was built with React JavaScript, then, it was refactored to React TypeScript for better type checking and code quality.
 
