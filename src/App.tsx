@@ -12,6 +12,9 @@ import NewProductsGallery from "./components/NewProductsGallery";
 import LandingPage from "./components/LandingPage";
 import { Routes, Route } from "react-router-dom";
 import MapBox from "./components/MapBox";
+import CheckOutPage from "./components/CheckOutPage";
+import PaymentSuccessPage from "./components/PaymentSuccessPage";
+import PaymentErrorPage from "./components/PaymentErrorPage";
 const App = () => {
   return (
     <>
@@ -29,6 +32,18 @@ const App = () => {
         <Route
           path="/product-gallery"
           element={<NewProductsGallery></NewProductsGallery>}
+        ></Route>
+        <Route
+          path="/products/:id/check-out"
+          element={<CheckOutPage></CheckOutPage>}
+        ></Route>
+        <Route
+          path="/payment/success"
+          element={<PaymentSuccessPage></PaymentSuccessPage>}
+        ></Route>
+        <Route
+          path="/payment/error"
+          element={<PaymentErrorPage></PaymentErrorPage>}
         ></Route>
       </Routes>
     </>
