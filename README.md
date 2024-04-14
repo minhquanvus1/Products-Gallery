@@ -15,7 +15,6 @@
 - Since the app uses PayPal for payment, it is recommended to use the PayPal sandbox account for testing the payment feature, as below:
 
   - PayPal Sandbox Account:
-    sb-liy9s30399617@personal.example.com
     - `Email: sb-liy9s30399617@personal.example.com`
     - `Password: Y}8i*&}Z`
 
