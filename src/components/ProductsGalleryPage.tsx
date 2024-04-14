@@ -98,6 +98,7 @@ function ProductsGalleryPage() {
           return (
             <ProductCard
               key={product.id}
+              productId={product.id}
               productTitle={product.title}
               productImage={product.images[0]}
               productCategory={product.category}
@@ -113,6 +114,7 @@ function ProductsGalleryPage() {
           return (
             <ProductCard
               key={product.id}
+              productId={product.id}
               productTitle={product.title}
               productImage={product.images[0]}
               productCategory={product.category}

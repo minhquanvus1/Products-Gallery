@@ -86,6 +86,7 @@ const NewProductsGallery: React.FC<{}> = () => {
             return (
               <div ref={lastProductElementRef} key={product.id}>
                 <ProductCard
+                  productId={product.id}
                   productTitle={product.title}
                   productImage={product.images[0]}
                   productCategory={product.category}
@@ -99,6 +100,7 @@ const NewProductsGallery: React.FC<{}> = () => {
             return (
               <ProductCard
                 key={product.id}
+                productId={product.id}
                 productTitle={product.title}
                 productImage={product.images[0]}
                 productCategory={product.category}
