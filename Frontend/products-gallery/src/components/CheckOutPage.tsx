@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PayPalButton from "./PayPalButton";
 import { useParams, useLocation } from "react-router-dom";
-import { baseURL } from "../baseUrl";
+import { baseURL } from "../baseURL";
 
 const CheckOutPage = () => {
   const { id } = useParams<{ id: string }>();

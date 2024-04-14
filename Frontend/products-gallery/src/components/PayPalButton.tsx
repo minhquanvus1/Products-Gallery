@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { baseURL } from "../baseUrl";
+import { baseURL } from "../baseURL";
 
 interface PayPalButtonProps {
   amount: string;
@@ -14,6 +14,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
 }) => {
   //   console.log("amount in paypalbutton", amount);
   const navigate = useNavigate();
+  console.log("baseURL in paypalbutton is", baseURL);
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
       e.preventDefault();
